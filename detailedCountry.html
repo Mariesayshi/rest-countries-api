@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detailed Country</title>
+    <link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="./detailedCountry.css">
+  </head>
+  <body>
+    <div class="lightMode">
+      <section class="nav">
+        <div class="headingAndSwitch">
+          <h3 class="heading">Where in the World?</h3>
+          <div class="modeSwitch">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="moonIcon"
+              viewbox="0 0 512 512"
+            >
+              <title>Moon</title>
+              <path
+                fill="#ffffff"
+                d="M264 480A232 232 0 0132 248c0-94 54-178.28 137.61-214.67a16 16 0 0121.06 21.06C181.07 76.43 176 104.66 176 136c0 110.28 89.72 200 200 200 31.34 0 59.57-5.07 81.61-14.67a16 16 0 0121.06 21.06C442.28 426 358 480 264 480z"
+              />
+            </svg>
+            <span>Dark Mode</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="countryDetailed">
+        <button class="backBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="backIcon"
+            viewbox="0 0 512 512"
+          >
+            <title>Arrow Back</title>
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="48"
+              d="M244 400L100 256l144-144M120 256h292"
+            />
+          </svg>
+          Back
+        </button>
+        <div class="flagCont"></div>
+
+        <div class="detailedInfo">
+          <h2 class="countryName">Country Name</h2>
+
+          <div class="nativeName">
+            <span class="nativeNameTitle detailedInfoTitle">Native Name: </span>
+            <span class="nativeNameData detailedInfoData"></span>
+          </div>
+          <div class="population">
+            <span class="populationTitle detailedInfoTitle">Population: </span>
+            <span class="populationData detailedInfoData"></span>
+          </div>
+          <div class="region">
+            <span class="regionTitle detailedInfoTitle">Region: </span>
+            <span class="regionData detailedInfoData"></span>
+          </div>
+          <div class="subRegion">
+            <span class="subRegionTitle detailedInfoTitle">Sub Region: </span>
+            <span class="subRegionData detailedInfoData"></span>
+          </div>
+          <div class="capital">
+            <span class="capitalTitle detailedInfoTitle">Capital: </span>
+            <span class="capitalData detailedInfoData"></span>
+          </div>
+          <br />
+          <div class="domain">
+            <span class="domainTitle detailedInfoTitle">Domain: </span>
+            <span class="domainData detailedInfoData"></span>
+          </div>
+          <div class="currencies">
+            <span class="currenciesTitle detailedInfoTitle">Currencies: </span>
+            <span class="currenciesData detailedInfoData"></span>
+          </div>
+          <div class="languages">
+            <span class="languagesTitle detailedInfoTitle">Languages: </span>
+            <span class="languagesData detailedInfoData"></span>
+          </div>
+        </div>
+        <h3 class="borderCountriesHeading">Border Countries</h3>
+
+        <div class="borderCountries">
+          <div class="borderCountryTemp">country 1</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
