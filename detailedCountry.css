@@ -45,8 +45,7 @@
 }
 
 .backBtn {
-  border: 1px solid white;
-  background-color: white;
+  border: 1px solid transparent;
   box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 18px;
   padding: 0.5rem 1rem;
   display: flex;
