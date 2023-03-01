@@ -10,6 +10,7 @@
   padding: 1rem 1.5rem;
   display: flex;
   flex-direction: column;
+  display: none;
 }
 
 .borderCountries {
@@ -26,17 +27,17 @@
   padding: 0.5rem;
   margin: 0.5rem;
   margin-left: 0;
-  box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 18px;
   border-radius: 3px;
   font-size: 0.8rem;
 }
 
-.borderCountry {
+.borderCountryTemp {
   display: none;
 }
 
 .borderCountriesHeading {
   font-weight: 600;
+  display: none;
 }
 
 .countryDetailed .flagCont {
@@ -46,7 +47,6 @@
 
 .backBtn {
   border: 1px solid transparent;
-  box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 18px;
   padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
@@ -55,4 +55,8 @@
   width: 5.5rem;
   cursor: pointer;
   border-radius: 3px;
+}
+
+.show {
+  display: flex;
 }

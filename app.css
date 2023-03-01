@@ -29,7 +29,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 0rem 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   height: 5rem;
 }
 
@@ -37,7 +37,7 @@ a {
   display: flex;
   align-items: center;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.8rem;
   height: 100%;
   cursor: pointer;
 }
@@ -83,10 +83,13 @@ a {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   font-weight: 600;
   margin-top: 1.5rem;
   width: 50%;
+  min-width: 8rem;
+  position: relative;
+  cursor: pointer;
 }
 
 .arrowIcon {
@@ -94,10 +97,35 @@ a {
   margin-left: 0.2rem;
 }
 
+.filterOps { 
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  list-style: none;
+  padding:0;
+  width: 100%;
+  border-radius: 3px;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+  
+}
+
+.filterOp { 
+  padding: 0.5rem;
+  padding-left: 2rem;
+  cursor: pointer;
+}
+
+
+
 .searchInput,
 .filter {
+  height: 2.5rem;
   border: none;
   border-radius: 3px;
+display: flex;
+align-items: center;
 }
 
 .countries {
@@ -116,6 +144,7 @@ a {
   margin: 1rem 0rem;
   overflow: hidden;
   cursor: pointer;
+  flex-direction: column;
 }
 
 .countryName {
@@ -170,25 +199,35 @@ a {
 }
 
 .darkMode .headingAndSwitch,
-.darkMode .heading,
 .darkMode .searchInput,
 .darkMode .filter,
 .darkMode .country,
-.darkMode .backBtn {
+.darkMode .backBtn,
+.darkMode .filterOps,
+.darkMode .borderCountry {
   color: white;
   background-color: hsl(209, 23%, 22%);
   box-shadow: rgba(20, 20, 20, 0.2) 0px 0px 18px;
 }
 
 .lightMode .headingAndSwitch,
-.lightMode .heading,
 .lightMode .searchInput,
 .lightMode .filter,
 .lightMode .country,
-.lightMode .backBtn  {
+.lightMode .backBtn,
+.lightMode .filterOps,
+.lightMode .borderCountry {
   color: hsl(200, 15%, 8%);
   background-color: white;
   box-shadow: rgba(149, 157, 165, 0.15) 0px 0px 18px;
+}
+
+.lightMode .heading {
+  color: hsl(200, 15%, 8%);
+}
+
+.darkMode .heading {
+  color: white;
 }
 
 .darkMode .searchInput::placeholder {
@@ -207,22 +246,53 @@ a {
   display: none;
 }
 
-@media (min-width: 40rem) {
+@media (min-width: 45rem) {
   .countries {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
+    /* padding: 1rem 2rem; */
   }
   .country {
     margin: 1rem;
+    margin-right: auto;
+  }
+
+  .search {
+    flex-direction: row;
+    align-items: center;
+    padding: 0rem 3rem;
+  }
+
+  .filter {
+    margin-top: 0;
   }
 
   .searchInput {
     max-width: 30rem;
+    height: 3rem;
   }
 
   .filter {
     max-width: 10rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
   }
+  .filterOps { 
+    top: 2.5rem
+  }
+
+.headingAndSwitch { 
+  padding: 1rem 3rem;
+}
+
+.heading { 
+  font-size: 1.3rem;
+}
+.modeSwitch { 
+  font-size: 0.9rem;
+}
+
 }

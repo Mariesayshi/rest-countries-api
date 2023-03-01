@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>REST Countries</title>
+    <title>Where in the World?</title>
     <link rel="stylesheet" href="./app.css" />
   </head>
   <body>
-    <div class="lightMode">
+    <div class="lightMode" id="main">
       <section class="nav">
         <div class="headingAndSwitch">
           <a href="./index.html">
-            <h3 class="heading">Where in the World?</h3>
+            <h4 class="heading">Where in the World?</h4>
           </a>
           <div class="modeSwitch">
             <svg
@@ -61,7 +61,28 @@
           </div>
           <div class="filter">
             <span>Filter by region</span>
-            <img class="arrowIcon" src="./icons/chevron-down-outline.svg" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="arrowIcon"
+              viewbox="0 0 512 512"
+            >
+              <title>Chevron Down</title>
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="48"
+                d="M112 184l144 144 144-144"
+              />
+            </svg>
+            <ul class="filterOps">
+              <li class="filterOp" id="africa">Africa</li>
+              <li class="filterOp" id="americas">America</li>
+              <li class="filterOp" id="asia">Asia</li>
+              <li class="filterOp" id="europe">Europe</li>
+              <li class="filterOp" id="oceania">Oceania</li>
+            </ul>
           </div>
         </div>
       </section>

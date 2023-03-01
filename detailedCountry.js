@@ -5,13 +5,14 @@ let borderCountriesHeading = document.querySelector(".borderCountriesHeading");
 let backBtn = document.querySelector(".backBtn");
 
 
-detailedCountryId = sessionStorage.getItem('detailedCountryId');
+let url = window.location.href;
+detailedCountryId = decodeURIComponent(url.split("country=")[1]);
 
 const fillDetailedCountryData = async (country, keyword) => {
-    console.log(detailedCountryId);
     let res = await getData(`name/${keyword}`);
     let detailedCountryData = res[0];
-    
+    document.title = `${document.title} | ${detailedCountryData.name}`;
+
   
     for (let child of country.children) {
       if (child.classList.contains("flagCont")) {
@@ -19,6 +20,7 @@ const fillDetailedCountryData = async (country, keyword) => {
       }
       if (child.classList.contains("detailedInfo")) {
         child.querySelector(".countryName").innerHTML = detailedCountryData.name;
+
         child.querySelector(".nativeNameData").innerHTML =
           detailedCountryData.nativeName;
         child.querySelector(".populationData").innerHTML =
@@ -49,6 +51,7 @@ const fillDetailedCountryData = async (country, keyword) => {
         }
       }
     }
+    countryDetailed.classList.add('show');
   };
 
 
@@ -56,10 +59,12 @@ const fillDetailedCountryData = async (country, keyword) => {
     try {
       let res = await fetch(`https://restcountries.com/v2/alpha?codes=${cntr}`);
       let resJson = await res.json();
+      console.log(resJson)
       let newBorderCountry = borderCountryTemp.cloneNode(true);
       newBorderCountry.classList.remove("borderCountryTemp");
       newBorderCountry.classList.add("borderCountry");
       newBorderCountry.innerHTML = resJson[0].name;
+      newBorderCountry.href = `${newBorderCountry.href}?country=${resJson[0].name}`
       borderCountries.appendChild(newBorderCountry);
     } catch (err) {
       console.log(err);
@@ -67,3 +72,7 @@ const fillDetailedCountryData = async (country, keyword) => {
   };
 
   fillDetailedCountryData(countryDetailed, detailedCountryId);
+
+  backBtn.addEventListener('click', (e) => { 
+    history.back();
+  })

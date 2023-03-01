@@ -3,9 +3,8 @@ let countriesCont = document.querySelector(".countries");
 let search = document.querySelector(".search");
 let searchInput = document.querySelector(".searchInput");
 let searchValue = "";
-
-
-
+const filter = document.querySelector(".filter");
+const filterOps = document.querySelector(".filterOps");
 
 const fillShortInfoData = (elem, obj) => {
   elem.children[0].style.backgroundImage = `url(${obj.flag})`;
@@ -14,6 +13,7 @@ const fillShortInfoData = (elem, obj) => {
   elem.children[1].children[2].children[0].innerHTML = obj.region;
   elem.children[1].children[3].children[0].innerHTML = obj.capital;
   elem.id = obj.name;
+  elem.href = `${elem.href}?country=${encodeURIComponent(obj.name)}`;
 };
 
 const refreshResultPage = async (keyword) => {
@@ -47,21 +47,27 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-
-
+const filterByRegion = (region) => {
+  for (let elem of countriesAll) {
+    elem.classList.add("hide");
+  }
+  for (let country of countriesAll) {
+    let countryRegionElem = country.querySelector('.regionData');
+    if (countryRegionElem.innerText.toLowerCase() === region) {
+      country.classList.remove("hide");
+    }
+  }
+};
 
 window.addEventListener("click", (e) => {
-  let targetPath = e.composedPath();
-  for (let elem of targetPath) {
+  for (let elem of e.composedPath()) {
     if (elem.classList) {
-      if (elem.classList.contains("country")) {
-        detailedCountryId = elem.id;
-        sessionStorage.setItem('detailedCountryId', detailedCountryId);
+      if (elem.classList.contains("filter")) {
+        filterOps.classList.toggle("show");
+      } else if (elem.classList.contains("filterOp")) {
+        let region = elem.id;
+        filterByRegion(region);
       }
     }
   }
 });
-
-
-
-
